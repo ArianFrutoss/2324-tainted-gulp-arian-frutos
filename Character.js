@@ -9,8 +9,19 @@ export default class Character{
         this.potions = potions;
     }
 
-    static from(playerData, potions){
+    static from(player, potions){
 
+        const fullname = `${player.name} the ${player.class}`;
+        const health = player.health;
+        const magick = player.magick;
+        const stamina = player.stamina;
         
+        return new Character(
+            fullname,
+            health,
+            magick,
+            stamina,
+            potions
+        )
     }
 }

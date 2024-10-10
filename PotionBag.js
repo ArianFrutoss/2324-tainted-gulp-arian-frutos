@@ -5,16 +5,15 @@ export default class PotionBag{
         this.potions = potions;
     }
 
-    static create(data, cauldron){
+    static create(pouch, cauldron){
 
         const potions = [];
-        const player = data.players[0];
 
-        for (let i = 0; i < player.pouch_red.length; i++){
+        for (let i = 0; i < pouch.length; i++){
 
-            for (let j = i; j < player.pouch_red.length; j++){
+            for (let j = i; j < pouch.length; j++){
                 
-                potions.push(cauldron.createPotion(player.pouch_red[i], player.pouch_red[j]));
+                potions.push(cauldron.createPotion(pouch[i], pouch[j]));
             }
         }
 
