@@ -1,5 +1,6 @@
 import Cauldron from "./cauldron.js";
 import Ingredients from "./ingredients.js";
+import PotionBag from "./PotionBag.js";
 import { getIngredientsData, getPlayerData } from "./service.js"
 
 const execute = async () => {
@@ -10,25 +11,15 @@ const execute = async () => {
         const ingredientData = await getIngredientsData();
         const playerData     = await getPlayerData();
 
-        //Create the ingrdients
+        //Create the ingredients
         const ingredients = Ingredients.load(ingredientData);
-        showIngredients(ingredients);
 
         //Create the cauldron
         const cauldron = new Cauldron(ingredients);
 
-        //Create the potions
-        const potion1 = cauldron.createPotion("Bear Claws", "Bee");
-        showPotion(potion1);
-
-        const potion2 = cauldron.createPotion("Chicken's Egg", "Chaurus Eggs");
-        showPotion(potion2);
-        
-        const potion3 = cauldron.createPotion("Chaurus Eggs", "Bleeding Crown");
-        showPotion(potion3);
-        
-        const potion4 = cauldron.createPotion("Nightshade", "Ectoplasm");
-        showPotion(potion4);
+        //Create the PotionBag
+        const potionBag = PotionBag.create(ingredients, cauldron);
+        console.log(potionBag);
     }
 
     catch (error){
