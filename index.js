@@ -1,16 +1,17 @@
 import Cauldron from "./cauldron.js";
 import Ingredients from "./ingredients.js";
-import { getData } from "./service.js"
+import { getIngredientsData, getPlayerData } from "./service.js"
 
 const execute = async () => {
 
     try{
 
-        //Receive the ingredients data
-        const data = await getData();
+        //Receive data
+        const ingredientData = await getIngredientsData();
+        const playerData     = await getPlayerData();
 
         //Create the ingrdients
-        const ingredients = Ingredients.load(data);
+        const ingredients = Ingredients.load(ingredientData);
         showIngredients(ingredients);
 
         //Create the cauldron
