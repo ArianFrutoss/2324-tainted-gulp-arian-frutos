@@ -19,7 +19,7 @@ const execute = async () => {
 
         //Create the PotionBag
         const potionBag = PotionBag.create(ingredients, cauldron);
-        console.log(potionBag);
+        showPotions(potionBag);
     }
 
     catch (error){
@@ -46,6 +46,19 @@ const showPotion = (potion) => {
     console.log(`Time:      ${potion.time}`);
     console.log(`-------------------------`);
     console.log();
+}
+
+const showPotions = (potionBag) => {
+
+    potionBag.potions.map((potion) => {
+
+        console.log(`${potion.name}`);
+        console.log(`Value:     ${potion.value}`);
+        console.log(`Weight:    ${potion.weight}`);
+        console.log(`Time:      ${potion.time}`);
+        console.log(`-------------------------`);
+        console.log();
+    })
 }
 
 execute();
