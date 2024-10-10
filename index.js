@@ -24,6 +24,7 @@ const execute = async () => {
 
         //Create the Character
         const character = Character.from(playerData.players[0], potionBag);
+        showCharacter(character);
     }
 
     catch (error){
@@ -63,6 +64,22 @@ const showPotions = (potionBag) => {
         console.log(`-------------------------`);
         console.log();
     })
+}
+
+const showCharacter = (character) => {
+
+    console.log(`${character.fullName}`);
+    console.log(`-------------------------`);
+    console.log(`Health:     ${character.health}`);
+    console.log(`Magick:    ${character.magick}`);
+    console.log(`Stamina:      ${character.stamina}`);
+    
+    character.potions.potions.map((potion, i = 0) => {
+
+        console.log(`potion ${i}: ${potion.name}`);
+    })
+    
+    console.log();
 }
 
 execute();
