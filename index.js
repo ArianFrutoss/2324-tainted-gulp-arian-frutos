@@ -18,7 +18,7 @@ const execute = async () => {
         const cauldron = new Cauldron(ingredients);
 
         //Create the PotionBag
-        const potionBag = PotionBag.create(ingredients, cauldron);
+        const potionBag = PotionBag.create(playerData, cauldron);
         showPotions(potionBag);
     }
 
@@ -54,7 +54,7 @@ const showPotions = (potionBag) => {
 
         console.log(`${potion.name}`);
         console.log(`Value:     ${potion.value}`);
-        console.log(`Weight:    ${potion.weight}`);
+        console.log(`Weight:    ${potion.weight.toFixed(2)}`);
         console.log(`Time:      ${potion.time}`);
         console.log(`-------------------------`);
         console.log();
