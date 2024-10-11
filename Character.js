@@ -30,25 +30,32 @@ export default class Character{
         this.potions.potions.map((potion) => {
 
             const potionWords = potion.name.split(' ');
-            
+            let text = '';
+
             switch (potionWords[potionWords.length - 1]){
 
                 case 'Health':
                     potionWords[0] === 'Potion' ?
-                    this.health += potion.value :
-                    this.health -= potion.value;
+                    (this.health += potion.value,
+                    text = `drinks ${potion.name} and gains ${potion.value} points of health`) :
+                    (this.health -= potion.value,
+                    text = `drinks ${potion.name} and loses ${potion.value} points of health`);
                     break;
 
                 case 'Magicka':
                     potionWords[0] === 'Potion' ?
-                    this.magick += potion.value :
-                    this.magick -= potion.value;
+                    (this.magick += potion.value,
+                    text = `drinks ${potion.name} and gains ${potion.value} points of magick`) :
+                    (this.magick -= potion.value,
+                    text = `drinks ${potion.name} and loses ${potion.value} points of magick`);
                     break;
 
                 case 'Stamina':
                     potionWords[0] === 'Potion' ?
-                    this.stamina += potion.value :
-                    this.stamina -= potion.value;
+                    (this.stamina += potion.value,
+                    text = `drinks ${potion.name} and gains ${potion.value} points of magick`) :
+                    (this.stamina -= potion.value,
+                    text = `drinks ${potion.name} and loses ${potion.value} points of magick`);
                     break;
 
                 default:
@@ -58,20 +65,28 @@ export default class Character{
                         this.stamina += potion.value;
                         this.health += potion.value;
                         this.stamina += potion.value;
+                        text = `has found ${potion.name} and gains ${potion.value} points of health, magick & stamina`;
                     }
 
                     else if (potion.name != 'Failed Potion'){
 
                         potionWords[0] === 'Potion' ?
-                        (this.stamina++, this.health++, this.stamina++) :
-                        (this.stamina--, this.health--, this.stamina--);
+                        (this.stamina++, this.health++, this.stamina++,
+                        text = `drinks ${potion.name} and gains 1 point of health, magick & stamina`) :
+                        (this.stamina--, this.health--, this.stamina--,
+                        text = `drinks ${potion.name} and loses 1 point of health, magick & stamina`);
+                    }
+
+                    else {
+
+                        text = `cannot drink the ${potion.name}`;
                     }
                     break;
             }
 
             if (potion.name === 'Potion of Sanity'){
 
-                return "Joseph has drunk the potion of sanity";
+                return "Joseph Calamitae the Former archmage has found the Potion of Sanity. His mind is healed. Well done!!";
             }
 
             else if (this.health <= 0){
@@ -88,7 +103,19 @@ export default class Character{
 
                 return "Joseph is completely exhausted and can't move anymore.";
             }
+
+            this.showCharacter(text);
         })
+    }
+
+    showCharacter = (text) => {
+
+        console.log(`${this.fullName} ${text}`);
+        console.log(`Health:     ${this.health}`);
+        console.log(`Magick:    ${this.magick}`);
+        console.log(`Stamina:      ${this.stamina}`);
+        console.log(`-------------------------`);
+        console.log();
     }
 }
 
