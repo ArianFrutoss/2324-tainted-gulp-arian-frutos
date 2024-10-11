@@ -24,6 +24,7 @@ const execute = async () => {
 
         //Create the Character
         const character = Character.from(playerData.players[0], potionBag);
+        character.drinkEmAll();
         showCharacter(character);
     }
 
