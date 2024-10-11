@@ -68,6 +68,26 @@ export default class Character{
                     }
                     break;
             }
+
+            if (potion.name === 'Potion of Sanity'){
+
+                return "Joseph has drunk the potion of sanity";
+            }
+
+            else if (this.health <= 0){
+
+                return "Joseph is dead";
+            }
+
+            else if (this.magick <= 0){
+
+                return "Joseph has been drained of all his magic and Scholar X.G's chaos spell finishes him off.";
+            }
+
+            else if (this.stamina <= 0){
+
+                return "Joseph is completely exhausted and can't move anymore.";
+            }
         })
     }
 }
