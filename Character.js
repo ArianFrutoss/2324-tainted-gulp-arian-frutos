@@ -27,8 +27,9 @@ export default class Character{
 
     drinkEmAll(){
         
-        this.potions.potions.map((potion) => {
+        for (let i = 0; i < this.potions.potions.length; i++){
 
+            const potion = this.potions.potions[i];
             const potionWords = potion.name.split(' ');
             let text = '';
 
@@ -84,6 +85,8 @@ export default class Character{
                     break;
             }
 
+            this.showCharacter(text);
+
             if (potion.name === 'Potion of Sanity'){
 
                 return "Joseph Calamitae the Former archmage has found the Potion of Sanity. His mind is healed. Well done!!";
@@ -103,9 +106,7 @@ export default class Character{
 
                 return "Joseph is completely exhausted and can't move anymore.";
             }
-
-            this.showCharacter(text);
-        })
+        }
     }
 
     showCharacter = (text) => {
@@ -118,4 +119,3 @@ export default class Character{
         console.log();
     }
 }
-
