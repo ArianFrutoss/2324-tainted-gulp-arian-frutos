@@ -19,7 +19,7 @@ const execute = async () => {
         const cauldron = new Cauldron(ingredients);
 
         //Create the PotionBag
-        const potionBag = PotionBag.create(playerData.players[0].pouch_red, cauldron);
+        const potionBag = PotionBag.create(playerData.players[0].pouch_green, cauldron);
         showPotions(potionBag);
 
         //Create the Character

@@ -53,9 +53,9 @@ export default class Character{
                 case 'Stamina':
                     potionWords[0] === 'Potion' ?
                     (this.stamina += potion.value,
-                    text = `drinks ${potion.name} and gains ${potion.value} points of magick`) :
+                    text = `drinks ${potion.name} and gains ${potion.value} points of stamina`) :
                     (this.stamina -= potion.value,
-                    text = `drinks ${potion.name} and loses ${potion.value} points of magick`);
+                    text = `drinks ${potion.name} and loses ${potion.value} points of stamina`);
                     break;
 
                 default:
