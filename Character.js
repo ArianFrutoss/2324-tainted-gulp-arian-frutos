@@ -62,8 +62,8 @@ export default class Character{
 
                     if (potion.name === 'Potion of Sanity'){
 
-                        this.stamina += potion.value;
                         this.health += potion.value;
+                        this.magick += potion.value;
                         this.stamina += potion.value;
                         text = `has found ${potion.name} and gains ${potion.value} points of health, magick & stamina`;
                     }
@@ -71,9 +71,9 @@ export default class Character{
                     else if (potion.name != 'Failed Potion'){
 
                         potionWords[0] === 'Potion' ?
-                        (this.stamina++, this.health++, this.stamina++,
+                        (this.health++, this.magick++, this.stamina++,
                         text = `drinks ${potion.name} and gains 1 point of health, magick & stamina`) :
-                        (this.stamina--, this.health--, this.stamina--,
+                        (this.health--, this.magick--, this.stamina--,
                         text = `drinks ${potion.name} and loses 1 point of health, magick & stamina`);
                     }
 
